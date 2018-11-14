@@ -18,6 +18,6 @@ public class ClientController {
 	public String list(Model model) {
 		model.addAttribute("title", "List of clients");
 		model.addAttribute("clients", clientDAO.findAll());
-		return "Listar";
+		return "list";
 	}
 }
