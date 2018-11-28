@@ -1,5 +1,7 @@
 package com.springboot.springboot.app.controllers;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.springboot.springboot.app.models.dao.IClientDAO;
+import com.springboot.springboot.app.models.entity.Client;
 
 @Controller
 public class ClientController {
@@ -19,5 +22,19 @@ public class ClientController {
 		model.addAttribute("title", "List of clients");
 		model.addAttribute("clients", clientDAO.findAll());
 		return "list";
+	}
+	
+	@RequestMapping(value="/form")
+	public String create(Map<String, Object> model) {
+		Client client = new Client();
+		model.put("client", client);
+		model.put("title", "Form");
+		return "form";
+	}
+	
+	@RequestMapping(value="/form", method=RequestMethod.POST)
+	public String save(Client client) {
+		clientDAO.save(client);
+		return "redirect:list";
 	}
 }
