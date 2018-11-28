@@ -24,30 +24,24 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="container-fluid">	
+	<div class="container">	
 	    <h1 class="text-secondary" th:text="${title}"></h1>
-	    <!-- <h1 class="text-secondary border border-success border-top-0 border-left-0 border-right-0" th:text="${title}"></h1> -->
-	    <a th:href="@{/form}" class="btn btn-primary mb-2">Agregar cliente</a>
-	    <table class="table table-striped">
-	        <thead>
-	            <tr>
-	                <td>Id</td>
-	                <td>Nombre</td>
-	                <td>Apellidos</td>
-	                <td>Correo electrónico</td>
-	                <td>Fecha creación</td>
-	            </tr>
-	        </thead>
-	        <tbody>
-	            <tr th:each="client: ${clients}">
-	                <td th:text="${client.id}"></td>
-	                <td th:text="${client.firstName}"></td>
-	                <td th:text="${client.lastName}"></td>
-	                <td th:text="${client.email}"></td>
-	                <td th:text="${client.createdAt}"></td>
-	            </tr>
-	        </tbody>
-	    </table>
+	    <form th:action="@{/form}" th:object="${client}" method="post">	    
+		    <div class="form-group">
+		    	<label for="labelName">Nombres (s)</label>
+		    	<input type="text" class="form-control" id="labelName" th:field="*{firstName}" placeholder="Ingrese nombre(s)" />
+		    </div>
+		    <div class="form-group">
+		    	<label for="labelName">Apellido</label>
+		    	<input type="text" class="form-control" id="labelName" th:field="*{lastName}" placeholder="Ingrese los apellidos" />
+		    </div>
+		    <div class="form-group">
+		    	<label for="labelName">Email</label>
+		    	<input type="email" class="form-control" id="labelName" th:field="*{email}" placeholder="Ingrese el email" />
+		    </div>
+		    <input type="submit" class="btn btn-success btn-block mt-2" value="Crear cliente" />
+		    <input type="hidden" th:field="*{id}"/>
+	    </form>
 	</div>
 </body>
 </html>

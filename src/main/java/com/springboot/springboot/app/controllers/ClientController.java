@@ -28,7 +28,7 @@ public class ClientController {
 	public String create(Map<String, Object> model) {
 		Client client = new Client();
 		model.put("client", client);
-		model.put("title", "Form");
+		model.put("title", "Formulario");
 		return "form";
 	}
 	

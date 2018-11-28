@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
 
-.container-fluid, container {
+.container-fluid:first-of-type, .container:first-of-type {
 	margin-top: 64px !important;
 }
