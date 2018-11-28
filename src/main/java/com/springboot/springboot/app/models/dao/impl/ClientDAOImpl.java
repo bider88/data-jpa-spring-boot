@@ -28,7 +28,6 @@ public class ClientDAOImpl implements IClientDAO {
 	@Transactional
 	public void save(Client client) {
 		em.persist(client);
-		
 	}
 
 }

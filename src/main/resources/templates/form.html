@@ -39,6 +39,10 @@
 		    	<label for="labelName">Email</label>
 		    	<input type="email" class="form-control" id="labelName" th:field="*{email}" placeholder="Ingrese el email" />
 		    </div>
+		    <div class="form-group">
+		    	<label for="labelName">Fecha</label>
+		    	<input type="date" class="form-control" id="labelName" th:field="*{createdAt}" />
+		    </div>
 		    <input type="submit" class="btn btn-success btn-block mt-2" value="Crear cliente" />
 		    <input type="hidden" th:field="*{id}"/>
 	    </form>
