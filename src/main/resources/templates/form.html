@@ -29,22 +29,22 @@
 	    <form th:action="@{/form}" th:object="${client}" method="post">	    
 		    <div class="form-group">
 		    	<label for="labelName">Nombres (s)</label>
-		    	<input type="text" class="form-control" id="labelName" th:field="*{firstName}" placeholder="Ingrese nombre(s)" />
+		    	<input type="text" class="form-control" id="labelName" th:field="*{firstName}" placeholder="Ingrese nombre(s)" th:errorclass="'is-invalid'"/>
 		    	<small class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></small>
 		    </div>
 		    <div class="form-group">
 		    	<label for="labelName">Apellido</label>
-		    	<input type="text" class="form-control" id="labelName" th:field="*{lastName}" placeholder="Ingrese los apellidos" />
+		    	<input type="text" class="form-control" id="labelName" th:field="*{lastName}" placeholder="Ingrese los apellidos" th:errorclass="'is-invalid'"/>
 		    	<small class="form-text text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></small>
 		    </div>
 		    <div class="form-group">
 		    	<label for="labelName">Email</label>
-		    	<input type="text" class="form-control" id="labelName" th:field="*{email}" placeholder="Ingrese el email" />
+		    	<input type="text" class="form-control" id="labelName" th:field="*{email}" placeholder="Ingrese el email" th:errorclass="'is-invalid'"/>
 		    	<small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
 		    </div>
 		    <div class="form-group">
 		    	<label for="labelName">Fecha</label>
-		    	<input type="date" class="form-control" id="labelName" th:field="*{createdAt}" />
+		    	<input type="date" class="form-control" id="labelName" th:field="*{createdAt}" th:errorclass="'is-invalid'"/>
 		    	<small class="form-text text-danger" th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}"></small>
 		    </div>
 		    <input type="submit" class="btn btn-success btn-block mt-2" value="Crear cliente" />

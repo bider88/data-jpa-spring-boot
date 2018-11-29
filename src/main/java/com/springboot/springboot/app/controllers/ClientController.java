@@ -36,8 +36,8 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value="/form", method=RequestMethod.POST)
-	public String save(@Valid Client client, BindingResult result) {
-		
+	public String save(@Valid Client client, BindingResult result, Model  model) {
+		model.addAttribute("title", "Formulario");
 		if (result.hasErrors()) {
 			return "form";
 		}
