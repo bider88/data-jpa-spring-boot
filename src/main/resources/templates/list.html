@@ -47,7 +47,10 @@
 	                <td th:text="${client.lastName}"></td>
 	                <td th:text="${client.email}"></td>
 	                <td th:text="${client.createdAt}"></td>
-	                <td><a th:href="@{/form/} + ${client.id}" class="btn btn-outline-primary btn-xs"><i class="far fa-edit"></i></a></td>
+	                <td>
+	                	<a th:href="@{/form/} + ${client.id}" class="btn btn-outline-primary btn-xs"><i class="far fa-edit"></i></a>
+	                	<a th:href="@{/delete/} + ${client.id}" class="btn btn-outline-danger btn-xs ml-5" onclick="return confirm('¿Estás seguro?')"><i class="far fa-trash-alt"></i></a>
+	                </td>
 	            </tr>
 	        </tbody>
 	    </table>
