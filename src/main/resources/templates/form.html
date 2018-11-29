@@ -48,7 +48,6 @@
 		    	<small class="form-text text-danger" th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}"></small>
 		    </div>
 		    <input type="submit" class="btn btn-success btn-block mt-2" value="Crear cliente" />
-		    <input type="hidden" th:field="*{id}"/>
 	    </form>
 	</div>
 </body>

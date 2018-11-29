@@ -4,9 +4,11 @@ import java.util.List;
 
 import com.springboot.springboot.app.models.entity.Client;
 
-public interface IClientDAO {
+public interface ClientDAO {
 	
 	public List<Client> findAll();
 	
 	public void save(Client client);
+	
+	public Client findOne(Long id);
 }
