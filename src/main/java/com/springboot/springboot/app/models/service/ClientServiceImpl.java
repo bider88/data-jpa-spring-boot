@@ -18,7 +18,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	@Transactional(readOnly=true)
 	public List<Client> findAll() {
-		return clientDAO.findAll();
+		return (List<Client>) clientDAO.findAll();
 	}
 
 	@Override
