@@ -46,10 +46,12 @@ public class ClientController {
 		if (result.hasErrors()) {
 			return "form";
 		}
+		String messageFlash = (client.getId() != null ) ? "Successfully client updated" : "Successfully client added";
+		
 		clientService.save(client);
 		
 		status.setComplete();
-		flash.addFlashAttribute("success", "Successfully client added");
+		flash.addFlashAttribute("success", messageFlash);
 		return "redirect:list";
 	}
 	
@@ -61,12 +63,12 @@ public class ClientController {
 		if (id > 0) {
 			client = clientService.findOne(id);
 			if (client == null) {
-				flash.addFlashAttribute("error", "Client ID does not exist in DB");
-				return "redirect:list";
+				flash.addFlashAttribute("error", "Client ID " + id + " does not exist in DB");
+				return "redirect:/list";
 			}
 		} else {
 			flash.addFlashAttribute("error", "Client ID does can not be zero");
-			return "redirect:list";
+			return "redirect:/list";
 		}
 		model.put("client", client);
 		model.put("title", "Editar");

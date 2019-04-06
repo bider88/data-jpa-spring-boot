@@ -5,7 +5,7 @@ html {
   box-sizing: border-box;
 }
 
-.container-fluid:first-of-type, .container:first-of-type {
+.alert:first-of-type, .container-fluid:first-of-type, .container:first-of-type {
 	margin-top: 64px !important;
 }
 
