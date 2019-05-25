@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.springboot.app.models.entity.Client;
 import com.springboot.springboot.app.models.service.ClientService;
+import com.springboot.springboot.app.util.paginator.PageRender;
 
 @Controller
 @SessionAttributes("client")
@@ -33,12 +34,14 @@ public class ClientController {
 	public String list(@RequestParam(name="page", defaultValue = "0") int page, Model model) {
 		
 		// New versions > 2.0 of spring is: Pageable pageRequest = PageRequest.of(page, 4);
-		Pageable pageRequest = new PageRequest(page, 4);
+		Pageable pageRequest = new PageRequest(page, 5);
 		
 		Page<Client> clients = clientService.findAll(pageRequest);
 		
+		PageRender<Client> pageRender = new PageRender<>("/list", clients);
 		model.addAttribute("title", "List of clients");
 		model.addAttribute("clients", clients);
+		model.addAttribute("page", pageRender);
 		return "list";
 	}
 	
