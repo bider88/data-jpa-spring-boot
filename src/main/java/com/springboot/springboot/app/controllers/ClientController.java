@@ -34,7 +34,7 @@ public class ClientController {
 	public String list(@RequestParam(name="page", defaultValue = "0") int page, Model model) {
 		
 		// New versions > 2.0 of spring is: Pageable pageRequest = PageRequest.of(page, 4);
-		Pageable pageRequest = new PageRequest(page, 5);
+		Pageable pageRequest = new PageRequest(page, 4);
 		
 		Page<Client> clients = clientService.findAll(pageRequest);
 		
